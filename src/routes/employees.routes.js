@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import * as employeeController from "../controllers/employee.controller";
+import { checkUsernameExists } from "../middlewares/verifyUsername";
 
 const router = Router();
 
@@ -8,7 +9,7 @@ router.get("/", employeeController.getAllEmployees);
 
 router.get("/:id", employeeController.getEmployeeById);
 
-router.post("/", employeeController.createEmployee);
+router.post("/", [checkUsernameExists], employeeController.createEmployee);
 
 router.put("/:id", employeeController.updateEmployee);
 
