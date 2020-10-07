@@ -14,6 +14,7 @@ const tripSchema = new Schema(
     carbonFootPrintEmission: { type: Number, required: true },
     carbonFootPrintPerEmployee: { type: Number, required: true },
     usedTransport: { type: Schema.Types.ObjectId, ref: "typeTransport" },
+    usedTransportName: { type: String },
   },
   {
     timestamps: true,
@@ -28,7 +29,6 @@ tripSchema.statics.calculateCarbonFootPrint = (
   oneWay
 ) => {
   const oneWayFactor = oneWay ? 1 : 2;
-  console.log(oneWay, typeTransport.factorCarbonFootPrint, employees.length);
   return (
     typeTransport.factorCarbonFootPrint *
     employees.length *

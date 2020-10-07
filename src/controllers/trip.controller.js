@@ -32,6 +32,8 @@ export const createNewTrip = async (req, res, next) => {
       usedTransportTypeId,
     } = req.body;
 
+    console.log(usedTransportTypeId);
+
     const employeesId = await Promise.all(
       employees.map(async (employee) => {
         const e = await Employee.findOne({ username: employee });
@@ -55,7 +57,8 @@ export const createNewTrip = async (req, res, next) => {
       endAddress,
       totalKm,
       oneWay,
-      usedTransportTypeId: usedTransport._id,
+      usedTransport: usedTransport._id,
+      usedTransportName: usedTransportTypeId.name,
       carbonFootPrintEmission: carbonFootPrint,
       carbonFootPrintPerEmployee: carbonFootPrint / employeesId.length,
       employees: employeesId,

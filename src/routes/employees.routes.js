@@ -15,4 +15,6 @@ router.put("/:id", employeeController.updateEmployee);
 
 router.delete("/:id", employeeController.deleteEmployee);
 
+router.get("/username/:username", employeeController.getOnlyUsername);
+
 export default router;
