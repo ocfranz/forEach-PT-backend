@@ -32,6 +32,6 @@ Clients can access the REST API in the following routes, no type of authenticati
 /api/v1/trip
 ```
 ```javascript
-/api/v1/employess
+/api/v1/employess```
 
 The app runs on [http://localhost:5000](http://localhost:3000) 
